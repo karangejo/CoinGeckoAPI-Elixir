@@ -22,4 +22,5 @@ be found at [https://hexdocs.pm/coin_gecko_api](https://hexdocs.pm/coin_gecko_ap
  ## Usage
  
 iex> CoinGeckoApi.ping
+
 %{"gecko_says" => "(V3) To the Moon!"}
