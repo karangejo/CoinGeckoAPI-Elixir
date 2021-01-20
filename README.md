@@ -1,6 +1,6 @@
 # CoinGeckoApi
 
-**TODO: Add description**
+An interface to the [coin gecko api](https://www.coingecko.com/en/api)
 
 ## Installation
 
@@ -18,4 +18,8 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/coin_gecko_api](https://hexdocs.pm/coin_gecko_api).
-
+ 
+ ## Usage
+ 
+iex> CoinGeckoApi.ping
+%{"gecko_says" => "(V3) To the Moon!"}
