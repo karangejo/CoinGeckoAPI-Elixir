@@ -20,7 +20,7 @@ and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/coin_gecko_api](https://hexdocs.pm/coin_gecko_api).
  
  ## Usage
- 
+ ```
 iex> CoinGeckoApi.ping
-
 %{"gecko_says" => "(V3) To the Moon!"}
+```
