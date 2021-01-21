@@ -1,13 +1,17 @@
 defmodule CoinGeckoApi do
   @moduledoc """
   Documentation for `CoinGeckoApi`.
+  This interface is based on version 3 of the api.
+  Base URL is "https://api.coingecko.com/api/v3/"
+  Also check out CoinGecko api for more information at https://www.coingecko.com/en/api.
   """
 
   @cg_base_url "https://api.coingecko.com/api/v3/"
+  @print_url false
 
   def get_api(api_path) do
     url = @cg_base_url <> api_path
-    IO.puts url
+    if @print_url, do: IO.puts url
     res = HTTPoison.get!(url)
     Poison.decode!(res.body)
   end
@@ -15,7 +19,7 @@ defmodule CoinGeckoApi do
   def get_api_params(api_path,params \\%{}) do
     query_params = URI.encode_query(params)
     url = @cg_base_url <> api_path <> query_params
-    IO.puts url
+    if @print_url, do: IO.puts url
     res = HTTPoison.get!(url)
     Poison.decode!(res.body)
   end
@@ -181,6 +185,14 @@ defmodule CoinGeckoApi do
   end
 
   @doc """
+  List all supported market id and name
+  """
+
+  def exchanges_list do
+    get_api("exchanges/list")
+  end
+
+  @doc """
   get exchange volume in BTC and top 100 tickers only
   """
 
@@ -218,5 +230,110 @@ defmodule CoinGeckoApi do
 
   def finance_products do
     get_api("finance_products")
+  end
+
+  @doc """
+  List all market indexes
+  """
+
+  def indexes do
+    get_api("indexes")
+  end
+
+  @doc """
+  list market indexes id and name
+  """
+
+  def indexes_list do
+    get_api("indexes/list")
+  end
+
+  @doc """
+  List all derivative tickers
+  """
+
+  def derivatives do
+    get_api("derivatives")
+  end
+
+  @doc """
+  List all derivative exchanges
+  """
+
+  def derivatives_exchanges do
+    get_api("derivatives/exchanges")
+  end
+
+  @doc """
+  show derivative exchange data
+  """
+
+  def derivatives_exchanges_id(exchange_id \\ "bitmex") do
+    get_api("derivatives/exchanges/" <> exchange_id)
+  end
+
+  @doc """
+  List all derivative exchanges name and identifier
+  """
+
+  def derivatives_exchanges_list do
+    get_api("derivatives/exchanges/list")
+  end
+
+  @doc """
+  Get events, paginated by 100
+  """
+
+  def events(params \\ %{}) do
+    get_api_params("events", params)
+  end
+
+  @doc """
+  Get list of event countries
+  """
+
+  def events_countries do
+    get_api("events/countries")
+  end
+
+  @doc """
+  Get list of event types
+  """
+
+  def events_types do
+    get_api("events/types")
+  end
+
+  @spec exchange_rates :: false | nil | true | binary | [any] | number | map
+  @doc """
+  get BTC-to-Currency exchange rates
+  """
+
+  def exchange_rates do
+    get_api("exchange_rates")
+  end
+
+  @doc """
+  Get trending search coins on coingecko from last 24 hours
+  """
+
+  def search_trending do
+    get_api("search/trending")
+  end
+
+  @doc """
+  Get cryptocurrency global data
+  """
+
+  def global do
+    get_api("global")
+  end
+
+  @doc """
+  Get cryptocurrency global decentralized finance (defi_ data)
+  """
+
+  def global_decentralized_finance_defi do
+    get_api("global/decentralized_finance_defi")
   end
 end
