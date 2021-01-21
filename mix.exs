@@ -7,7 +7,11 @@ defmodule CoinGeckoApi.MixProject do
       version: "0.1.0",
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
+      description: description(),
+      package: package(),
       deps: deps(),
+      source_url: "https://github.com/karangejo/CoinGeckoAPI-Elixir",
+      homepage_url: "https://github.com/karangejo/CoinGeckoAPI-Elixir",
       name: "CoinGeckoAPI",
       docs: [main: "CoinGeckoAPI",
             extras: ["README.md"]]
@@ -18,6 +22,18 @@ defmodule CoinGeckoApi.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  defp description do
+    "An interface to the CoinGecko API"
+  end
+
+  defp package do
+    [
+      name: "CoinGeckoAPI",
+      organization: "Karang",
+      licenses: ["MIT"],
     ]
   end
 
