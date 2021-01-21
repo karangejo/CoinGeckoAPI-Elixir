@@ -11,9 +11,8 @@ defmodule CoinGeckoApi.MixProject do
       package: package(),
       deps: deps(),
       source_url: "https://github.com/karangejo/CoinGeckoAPI-Elixir",
-      homepage_url: "https://github.com/karangejo/CoinGeckoAPI-Elixir",
-      name: "CoinGeckoAPI",
-      docs: [main: "CoinGeckoAPI",
+      name: "coin_gecko_api",
+      docs: [main: "CoinGeckoApi",
             extras: ["README.md"]]
     ]
   end
@@ -31,9 +30,9 @@ defmodule CoinGeckoApi.MixProject do
 
   defp package do
     [
-      name: "CoinGeckoAPI",
-      organization: "Karang",
+      name: "coin_gecko_api",
       licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/karangejo/CoinGeckoAPI-Elixir"}
     ]
   end
 

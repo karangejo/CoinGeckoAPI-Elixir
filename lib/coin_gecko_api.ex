@@ -1,6 +1,7 @@
 defmodule CoinGeckoApi do
   @moduledoc """
   Documentation for `CoinGeckoApi`.
+
   This interface is based on version 3 of the api.
   Base URL is "https://api.coingecko.com/api/v3/"
   Also check out CoinGecko api for more information at https://www.coingecko.com/en/api.
@@ -304,7 +305,6 @@ defmodule CoinGeckoApi do
     get_api("events/types")
   end
 
-  @spec exchange_rates :: false | nil | true | binary | [any] | number | map
   @doc """
   get BTC-to-Currency exchange rates
   """
